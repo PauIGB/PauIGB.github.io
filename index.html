@@ -7,8 +7,17 @@
   <title>SPA for Github pages</title>
   <script>
     // самовызывающаяся ф-ция, где в качестве параметра предается window.location
-    (function(l) {
-      console.log('l', l)
+    (function({ search, pathname }) {
+     if(search) {
+       const arr = search.slice(1).split('=');
+       const url = {};
+       url[arr[0]] = arr[1].slice(1);
+       if(url.p !== undefined) {
+        window.history.replaceState(null, null, 'www.yandex.ru'
+        // pathname + url.p
+        )
+       }
+     }
     })(window.location)
   </script>
 </head>
