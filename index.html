@@ -9,20 +9,18 @@
     // самовызывающаяся ф-ция, где в качестве параметра предается window.location
     (function({ search, pathname }) {
      if(search) {
+       console.log('tick')
        const arr = search.slice(1).split('=');
        const url = {};
        url[arr[0]] = arr[1].slice(1);
        if(url.p !== undefined) {
-        window.history.replaceState(null, null, url.p
-        // pathname + url.p
-        )
+        window.history.replaceState(null, null, url.p)
        }
      }
     })(window.location)
   </script>
 </head>
 <body>
-  <div id="app"></div>
-  
-</body>
+  <div id="app"></div>  
+<script type="text/javascript" src="bundle.js"></script></body>
 </html>
