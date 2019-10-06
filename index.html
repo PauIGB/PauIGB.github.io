@@ -34,12 +34,13 @@
       /* body { overflow-x: hidden; } */
     </style>
     <script>
-      window.onload = () => alert('Home load');
-      (function({ search, hash, pathname }) {
+      // window.onload = () => alert('Home load');
+      (function({ origin, search, hash, pathname }) {
         if (search) {
           if (search.split('=')[0] === '?p') {
             const q = search.slice(3);
-            window.history.replaceState(null, null, l.pathname + q);
+            console.log('q', origin + pathname)
+            window.history.replaceState(null, null, origin + q + hash);
           }
         }
       })(window.location);
