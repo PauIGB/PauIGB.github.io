@@ -1,26 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>SPA for Github pages</title>
-  <script>
-    // самовызывающаяся ф-ция, где в качестве параметра предается window.location
-    (function({ search, pathname }) {
-     if(search) {
-       console.log('tick')
-       const arr = search.slice(1).split('=');
-       const url = {};
-       url[arr[0]] = arr[1].slice(1);
-       if(url.p !== undefined) {
-        window.history.replaceState(null, null, url.p)
-       }
-     }
-    })(window.location)
-  </script>
-</head>
-<body>
-  <div id="app"></div>  
-<script type="text/javascript" src="/bundle.js"></script></body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>SPA</title>
+    <style>
+      /* задание наследования стилей все будет наследоваться от html, body и далее по иерархии*/
+      /* Задаются стили не для всей страницы, а каждый элемент наследуется от родителя */
+      html,
+      body,
+      div,
+      h1,
+      span,
+      a,
+      p,
+      code {
+        margin: 0;
+        border: 0;
+        padding: 0;
+        text-decoration: inherit; /* убирается подчеркивание у ссылок, т.к. a наследуется от html и body */
+        box-sizing: inherit;
+        font: inherit;
+        color: inherit; /* распространяется на ссылки, ссылки таким же цветом, как цвет в body */
+        text-align: inherit;
+        background: transparent;
+      }
+      /* html, body { height: 100%; } */
+      /* html { background-color: rgb(0, 120, 0); } */
+      html {
+        background-color: #f0f0f0;
+      }
+      /* body { overflow-x: hidden; } */
+    </style>
+    <script>
+      window.onload = () => alert('Home load');
+      (function({ search, hash, pathname }) {
+        if (search) {
+          if (search.split('=')[0] === '?p') {
+            const q = search.slice(3);
+            window.history.replaceState(null, null, l.pathname + q);
+          }
+        }
+      })(window.location);
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="/build/bundle.js"></script>
+  </body>
 </html>
