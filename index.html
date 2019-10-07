@@ -1,54 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>SPA</title>
-    <style>
-      /* задание наследования стилей все будет наследоваться от html, body и далее по иерархии*/
-      /* Задаются стили не для всей страницы, а каждый элемент наследуется от родителя */
-      html,
-      body,
-      div,
-      h1,
-      span,
-      a,
-      p,
-      code {
-        margin: 0;
-        border: 0;
-        padding: 0;
-        text-decoration: inherit; /* убирается подчеркивание у ссылок, т.к. a наследуется от html и body */
-        box-sizing: inherit;
-        font: inherit;
-        color: inherit; /* распространяется на ссылки, ссылки таким же цветом, как цвет в body */
-        text-align: inherit;
-        background: transparent;
-      }
-      /* html, body { height: 100%; } */
-      /* html { background-color: rgb(0, 120, 0); } */
-      html {
-        background-color: #f0f0f0;
-      }
-      /* body { overflow-x: hidden; } */
-    </style>
-    <script>
-      // window.onload = () => alert('Home load');
-      (function({ origin, search, hash, pathname }) {
-        if (search) {
-          const firstQueryKey = search.split('=')[0];
-          const slashAppear = search.indexOf('/') !== -1;
-          if (firstQueryKey === '?p' && slashAppear) {
-            const searchValue = search.slice(3);
-            window.history.replaceState(null, null, origin + searchValue + hash);
-          }
-        }
-      })(window.location);
-    </script>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script src="/build/bundle.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>React Template</title>
+</head>
+<body>
+  <div id="app"></div>
+<script type="text/javascript" src="/_dist/bundle.js"></script></body>
 </html>
