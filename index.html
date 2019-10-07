@@ -37,9 +37,11 @@
       // window.onload = () => alert('Home load');
       (function({ origin, search, hash, pathname }) {
         if (search) {
-          if (search.split('=')[0] === '?p' && search.indexOf('/') !== -1) {
-            const q = search.slice(3);
-            window.history.replaceState(null, null, origin + q + hash);
+          const firstQueryKey = search.split('=')[0];
+          const slashAppear = search.indexOf('/') !== -1;
+          if (firstQueryKey === '?p' && slashAppear) {
+            const searchValue = search.slice(3);
+            window.history.replaceState(null, null, origin + searchValue + hash);
           }
         }
       })(window.location);
