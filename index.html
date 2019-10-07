@@ -37,7 +37,7 @@
       window.onload = () => alert('Home load');
       (function({ origin, search, hash, pathname }) {
         if (search) {
-          if (search.split('=')[0] === '?p' && indexOf('/') !== -1) {
+          if (search.split('=')[0] === '?p' && search.indexOf('/') !== -1) {
             const q = search.slice(3);
             window.history.replaceState(null, null, origin + q + hash);
           }
